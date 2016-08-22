@@ -117,7 +117,7 @@ controller.hears(['Opening Hours'], 'direct_message', apiai.hears, function (bot
     }
 });
 
-controller.hears(['.*'], 'direct_message', apiai.hears, function (bot, message) {
+controller.hears('(.*)', 'direct_message', apiai.hears, function (bot, message) {
 
     bot.reply(message, "dont understand " + JSON.stringify(message));
 });
