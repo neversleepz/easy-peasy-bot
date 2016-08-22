@@ -109,6 +109,13 @@ controller.hears(['flights'], 'direct_message', apiai.hears, function (bot, mess
     }
 });
 
+controller.hears(['Opening Hours'], 'direct_message', apiai.hears, function (bot, message) {
+    if(message.fulfillment.speech !== '') {
+        bot.reply(message, message.fulfillment.speech);
+    } else {
+        bot.reply(message, "You asked for Opening hours: " + JSON.stringify(message));
+    }
+});
 
 /**
  * AN example of what could be:
