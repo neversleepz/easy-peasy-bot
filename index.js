@@ -117,6 +117,11 @@ controller.hears(['Opening Hours'], 'direct_message', apiai.hears, function (bot
     }
 });
 
+controller.hears(['.*'], 'direct_message', apiai.hears, function (bot, message) {
+
+    bot.reply(message, "dont understand " + JSON.stringify(message));
+});
+
 /**
  * AN example of what could be:
  * Any un-handled direct mention gets a reaction and a pat response!
