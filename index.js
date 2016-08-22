@@ -108,6 +108,9 @@ controller.hears(['flights'], 'direct_message', apiai.hears, function (bot, mess
         bot.reply(message, "You requested to fly to " + message.entities['geo-city'] + " on " + message.entities['date']+".");
     }
 });
+controller.hears('(.*)', 'direct_message', apiai.hears, function (bot, message) {
+    bot.reply(message, "dont understand " + JSON.stringify(message));
+});
 
 controller.hears(['Opening Hours'], 'direct_message', apiai.hears, function (bot, message) {
     if(message.fulfillment.speech !== '') {
@@ -117,10 +120,6 @@ controller.hears(['Opening Hours'], 'direct_message', apiai.hears, function (bot
     }
 });
 
-controller.hears('(.*)', 'direct_message', apiai.hears, function (bot, message) {
-
-    bot.reply(message, "dont understand " + JSON.stringify(message));
-});
 
 /**
  * AN example of what could be:
